@@ -2,19 +2,19 @@ document.addEventListener("DOMContentLoaded",
     function (event) {
 
         document.querySelector("button")
-            .addEventListener("click", function() {
-                var self = this;
-                var name = "";
+            .addEventListener("click", function () {
+                
 
                 $ajaxUtils
-                    .sendGetRequest("/data/namee.txt",
+                    .sendGetRequest("/data/name.txt",
                     function(request) {
-                        self.name = request.responseText;
+                        var name = request.responseText;
+                        
+                        document.querySelector("#content")
+                        .innerHTML = "<h2> Hello </h2>" + name + "!";
                     });
 
-                document.querySelector("#content")
-                        .innerHTML = "<h2> Hello </h2>" +
-                            self.name + "!";
+               
             });
     }
 );
